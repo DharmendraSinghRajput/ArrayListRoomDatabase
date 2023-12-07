@@ -1,0 +1,27 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.RoomDataBaseArray" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.RoomDataBaseArray" parent="Base.Theme.RoomDataBaseArray" />
+    <style name="Theme.CreateTeamEditText" parent="Widget.MaterialComponents.AutoCompleteTextView.FilledBox.Dense">
+        <item name="android:textSize">@dimen/_10ssp</item>
+        <item name="colorControlNormal">@color/silver_chalice</item>
+        <item name="colorControlActivated">@color/silver_chalice</item>
+        <item name="colorControlHighlight">@color/silver_chalice</item>
+        <item name="android:textColor">@color/silver_chalice</item>
+        <item name="android:textColorHint">@color/silver_chalice</item>
+        <item name="android:paddingTop">@dimen/_13sdp</item>
+        <item name="android:paddingBottom">@dimen/_13sdp</item>
+        <item name="android:paddingStart">@dimen/_8sdp</item>
+        <item name="android:paddingEnd">@dimen/_8sdp</item>
+    </style>
+
+    <style name="DatePickerDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorPrimary">@color/cornflower_blue</item>
+        <item name="colorPrimaryDark">@color/cornflower_blue</item>
+        <item name="colorAccent">@color/cornflower_blue</item>
+    </style>
+</resources>

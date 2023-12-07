@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="colorGrey">#6F6F6F</color>
+    <color name="silver_chalice">#9E9E9E</color>
+    <color name="dusty_gray">#979797</color>
+    <color name="silver">#C5C5C5</color>
+    <color name="eastern_blue">#1593C6</color>
+    <color name="bay_of_many">#224382</color>
+    <color name="cornflower_blue">#4C80F8</color>
+</resources>
