@@ -1,11 +1,12 @@
-package com.example.roomdatabasearray.ui
+package com.example.roomdatabasearray.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.roomdatabasearray.databinding.RowPostBinding
+import com.example.roomdatabasearray.ui.models.PostApiResponseItem
 
-class PostAdapter(val onClick: (position: Int, viewId: Int) -> Unit) : RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
+class PostAdapter(val onClick: (position: Int) -> Unit) : RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
 
     private var getAllTeamMemberDataResponse = listOf<PostApiResponseItem>()
 
@@ -16,18 +17,12 @@ class PostAdapter(val onClick: (position: Int, viewId: Int) -> Unit) : RecyclerV
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
         holder.mBinding.apply {
-            val followData = getAllTeamMemberDataResponse[position]
-
             getAllTeamMemberDataResponse[position].apply {
-              /*  tvName.text="${user.vFirstName ?: ""} ${user.vLastName ?: ""}"
-                GeneralFunctions.loadImage(root.context, followData.user.vImage,ivPost)
-                root.setOnClickListener { onClick(position, -1) }*/
+                tvBody.text=title
+                tvSubBody.text=body
             }
-
-
         }
     }
-
     override fun getItemCount(): Int = getAllTeamMemberDataResponse.size
 
     fun setData(chatTeamList: List<PostApiResponseItem>) {

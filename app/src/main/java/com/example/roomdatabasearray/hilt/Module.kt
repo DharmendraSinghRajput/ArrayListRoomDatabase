@@ -69,9 +69,6 @@ object Module {
     }
     @Provides
     fun providesUserDao(userDatabase: RecipesDatabase): RecipesDao =userDatabase.recipesDao()
-
-
-
     @Singleton
     @Provides
     fun provideSharedPreference(@ApplicationContext context: Context): SharedPreferences = context.getSharedPreferences("${context.getString(

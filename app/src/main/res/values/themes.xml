@@ -24,4 +24,9 @@
         <item name="colorPrimaryDark">@color/cornflower_blue</item>
         <item name="colorAccent">@color/cornflower_blue</item>
     </style>
+    <style name="Theme.RoundWithBorder" parent="">
+        <item name="cornerSize">50%</item>
+        <item name="android:strokeColor">@color/mercury</item>
+        <item name="android:strokeWidth">@dimen/_2sdp</item>
+    </style>
 </resources>

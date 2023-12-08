@@ -9,29 +9,38 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingHorizontal="@dimen/_10sdp"
-        android:paddingVertical="@dimen/_10sdp"
-        android:text="Name"
+        android:text="Title: "
+        android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingHorizontal="@dimen/_10sdp"
-        android:paddingVertical="@dimen/_10sdp"
-        android:text="Name"
         app:layout_constraintTop_toBottomOf="@+id/tvUserId"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvBody"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingHorizontal="@dimen/_10sdp"
-        android:paddingVertical="@dimen/_10sdp"
-        android:text="Name"
+        android:text="SubTitle"
+        android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvSubBody"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@+id/tvBody"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
