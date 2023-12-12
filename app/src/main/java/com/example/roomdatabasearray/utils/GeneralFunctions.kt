@@ -2,6 +2,7 @@ package com.example.roomdatabasearray.utils
 
 import android.content.Context
 import android.graphics.drawable.Drawable
+import android.widget.EditText
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -9,6 +10,7 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.example.roomdatabasearray.R
+import com.google.android.material.textfield.TextInputLayout
 
 object GeneralFunctions {
     fun loadImage(context: Context, url: Any, imageView: ImageView, changeScale: Boolean = true) {
@@ -24,10 +26,10 @@ object GeneralFunctions {
             }
 
             override fun onResourceReady(
-                resource: Drawable?,
-                model: Any?,
+                resource: Drawable,
+                model: Any,
                 target: Target<Drawable?>?,
-                dataSource: DataSource?,
+                dataSource: DataSource,
                 isFirstResource: Boolean
             ): Boolean {
                 if (changeScale)
@@ -37,4 +39,54 @@ object GeneralFunctions {
         }).error(R.drawable.no_image)
             .placeholder(R.drawable.no_image).into(imageView)
     }
+    fun showTextInputLayoutError(textInputLayout: TextInputLayout, message: String): Boolean {
+        textInputLayout.isErrorEnabled = true
+        textInputLayout.error = message
+        textInputLayout.requestFocus()
+        return false
+    }
+    fun validEmptyTextInputLayout(tripleList: List<Triple<TextInputLayout, EditText, String>>): Boolean {
+        tripleList.forEach {
+            hideTextInputLayoutError(it.first)
+            if (it.second.text.toString().isEmpty())
+                return showTextInputLayoutError(it.first, it.third)
+        }
+
+        return true
+    }
+
+
+    fun validateEmail(context: Context, textInputLayout: TextInputLayout, editText: EditText): Boolean {
+
+        if (editText.text.toString().isEmpty())
+            return showTextInputLayoutError(textInputLayout, context.getString(R.string.enter_email))
+        else
+            hideTextInputLayoutError(textInputLayout)
+
+        if (!editText.text.toString().trim().matches(Regex(Constants.EMAIL_REGEX)))
+            return showTextInputLayoutError(textInputLayout, context.getString(R.string.invalid_email))
+        else
+            hideTextInputLayoutError(textInputLayout)
+
+        return true
+
+    }
+    fun validatePassword(context: Context, textInputLayout: TextInputLayout, editText: EditText): Boolean {
+
+        if (editText.text.toString().isEmpty())
+            return showTextInputLayoutError(textInputLayout, context.getString(R.string.enter_password))
+        else
+            hideTextInputLayoutError(textInputLayout)
+
+        if (editText.text.toString().length !in 8..20)
+            return showTextInputLayoutError(textInputLayout, context.getString(R.string.password_must_be_8_20_characters))
+        else
+            hideTextInputLayoutError(textInputLayout)
+
+        return true
+
+    }
+
+    fun hideTextInputLayoutError(textInputLayout: TextInputLayout) = textInputLayout.apply { isErrorEnabled = false }
+
 }

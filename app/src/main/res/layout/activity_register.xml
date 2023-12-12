@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/orange"
+    tools:context=".ui.activity.RegisterActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/startGuidLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/_17sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endGuidLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/_17sdp" />
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="@dimen/_20sdp"
+            android:src="@drawable/ic_launcher_background"
+            app:civ_border_width="4dp"
+            app:layout_constraintEnd_toEndOf="@id/endGuidLine"
+            app:layout_constraintStart_toStartOf="@+id/startGuidLine"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tnlUserName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:hint="Enter the name"
+            app:layout_constraintEnd_toEndOf="@id/endGuidLine"
+            app:layout_constraintStart_toStartOf="@id/startGuidLine"
+            app:layout_constraintTop_toBottomOf="@+id/imgProfile">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tnlUserContact"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:hint="Enter the contact"
+            app:layout_constraintEnd_toEndOf="@id/endGuidLine"
+            app:layout_constraintStart_toStartOf="@id/startGuidLine"
+            app:layout_constraintTop_toBottomOf="@+id/tnlUserName">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editContact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tnlUserEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:hint="Enter the email"
+            app:layout_constraintEnd_toEndOf="@id/endGuidLine"
+            app:layout_constraintStart_toStartOf="@id/startGuidLine"
+            app:layout_constraintTop_toBottomOf="@+id/tnlUserContact">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tnlUserPassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:hint="Enter the password"
+            app:layout_constraintEnd_toEndOf="@id/endGuidLine"
+            app:layout_constraintStart_toStartOf="@id/startGuidLine"
+            app:layout_constraintTop_toBottomOf="@+id/tnlUserEmail">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonSave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_30sdp"
+            android:background="@drawable/alertdialogbox"
+            android:text="@string/register"
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="bold"
+            android:textColor="@color/orange"
+            app:layout_constraintEnd_toEndOf="@id/endGuidLine"
+            app:layout_constraintStart_toStartOf="@+id/startGuidLine"
+            app:layout_constraintTop_toBottomOf="@+id/tnlUserPassword" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

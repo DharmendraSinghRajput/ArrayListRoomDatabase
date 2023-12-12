@@ -8,10 +8,14 @@ import com.example.roomdatabasearray.R
 import com.example.roomdatabasearray.remote.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
+import javax.inject.Inject
 
 @AndroidEntryPoint
 open class BaseActivity(): AppCompatActivity(){
     private lateinit var loader: Dialog
+
+    @Inject
+    lateinit var prefUtil: PrefUtil
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         loader = Dialog(this).apply {
@@ -20,33 +24,33 @@ open class BaseActivity(): AppCompatActivity(){
             setCancelable(false)
         }
     }
-    fun handleLoader(array: ArrayList<Any>, swipeRefreshLayout: SwipeRefreshLayout? = null, successResponse: (Resource<Any>) -> Unit) {
+    fun handleLoader(resource: Resource<Any>, showLoader: Boolean = true, swipeRefreshLayout: SwipeRefreshLayout? = null, successResponse: (Resource<Any>) -> Unit) {
         swipeRefreshLayout?.isRefreshing = false
-        if(array.isEmpty()){
-            showLoader()
+        when (resource) {
+            is Resource.Error -> {
+                Timber.v("okhttp: State Error")
+                hideLoader()
+            }
 
-        }else{
-            hideLoader()
-
-        }
-
-
-    /*    when (showLoader) {
-
-            is showLoader -> {
+            is Resource.Loading -> {
                 Timber.v("okhttp: State Loading")
                 if (showLoader)
                     showLoader()
             }
 
-            is showLoader-> {
-//                FileReadWriteUtil(this).writeFileOnInternalStorage("API_Response.txt", GeneralFunctions.prettifyJson(Gson().toJson(resource.data))!!)
-                Timber.v("okhttp: State Success")
+            is Resource.NoInternet -> {
+                Timber.v("okhttp: State NoInternet")
                 hideLoader()
             }
 
-            else -> {}
-        }*/
+            is Resource.Success -> {
+//                FileReadWriteUtil(this).writeFileOnInternalStorage("API_Response.txt", GeneralFunctions.prettifyJson(Gson().toJson(resource.data))!!)
+                Timber.v("okhttp: State Success")
+                hideLoader()
+                successResponse(resource)
+            }
+        }
+
     }
     fun showLoader() {
         if (!loader.isShowing)

@@ -22,4 +22,13 @@
     <string name="turn_on_internet_then_click_on_retry_to_continue">Turn On Internet Then Click On Retry To Continue.</string>
     <string name="unexpected_error">UnExpected Error.</string>
     <string name="retry">Retry</string>
+    <string name="register">Register</string>
+
+    <string name="please_enter_the_name">Please enter the name</string>
+    <string name="please_enter_the_phone">Please enter the phone</string>
+    <string name="login">Login</string>
+    <string name="register_user">Register User</string>
+    <string name="splash_screen">Splash Screen</string>
+
+
 </resources>
